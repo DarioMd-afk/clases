@@ -1,0 +1,13 @@
+class Vehiculo {
+    +Vehiculo(modelo, año)
+    +acelerar(): void
+    + frenar(): void
+    + obtenerModelo(): String
+}
+
+class Auto extends Vehiculo{
+    - puertas: int
+    --
+    + Auto(modelo, año, puertas)
+    + obtenerPuertas(): int
+}
