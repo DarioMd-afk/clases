@@ -1,0 +1,20 @@
+@startuml subescenarios
+left to right direction
+
+actor Cliente
+rectangle "Sistema" {
+usecase "Realizar Reserva" as UC1
+usecase "Verificar Saldo" as UC2
+usecase "Rechazar" as UC3
+usecase "Aprobar" as UC4
+}
+
+actor Taquilla
+
+Cliente --> UC1
+UC1 --|> UC2 : <<include>>
+UC3 --|> UC1 : <<extend>> [insuficiente]
+UC4 --|> UC1 : <<extend>> [suficiente]
+UC1 --> Taquilla
+
+@enduml
