@@ -1,0 +1,52 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' Clase Abstracta Empleado
+abstract class Empleado {
+    # nombre: String
+    # cedula: String
+    # sueldoBase: double
+    # id: int
+    {static} # totalEmpleados: int = 0
+    {static} # proximoId: int = 1001
+
+    + Empleado(nombre: String, cedula: String, sueldoBase: double)
+    + {abstract} calcularSueldo(): double
+    + {abstract} obtenerDetalles(): String
+    + {static} obtenerTotalEmpleados(): int
+    + {static} mostrarEstadisticas(totalNomina: double): void
+}
+
+' Subclases
+class Obrero {
+    + Obrero(nombre: String, cedula: String, sueldoBase: double)
+    + calcularSueldo(): double
+    + obtenerDetalles(): String
+}
+
+class Supervisor {
+    + Supervisor(nombre: String, cedula: String, sueldoBase: double)
+    + calcularSueldo(): double
+    + obtenerDetalles(): String
+}
+
+class Gerente {
+    + Gerente(nombre: String, cedula: String, sueldoBase: double)
+    + calcularSueldo(): double
+    + obtenerDetalles(): String
+}
+
+' Clase Principal
+class NominaEmpresa {
+    + {static} main(args: String[]): void
+}
+
+' Relaciones de Herencia
+Empleado <|-- Obrero
+Empleado <|-- Supervisor
+Empleado <|-- Gerente
+
+' Relación de Asociación (NominaEmpresa usa / administra Empleado)
+NominaEmpresa "1" --> "*" Empleado : administra >
+
+@enduml
