@@ -1,0 +1,64 @@
+@startuml
+
+package "ejemploanimal" {
+
+    class Animal {
+        - nombre: String
+        - tipo_alimentacion: String
+        - edad: int
+        + Animal(nombre: String, tipo_alimentación: String, edad: int)
+        + getNombre(): String
+        + setNombre(nombre: String): void
+        + getTipo_alimentacion(): String
+        + setTipo_alimentacion(tipo_alimentacion: String): void
+        + getEdad(): int
+        + setEdad(edad: int): void
+        + toString(): String
+    }
+
+    class Mamifero {
+        - gestacion: int
+        + Mamifero()
+        + Mamifero(nombre: String, tipo_alimentacion: String, edad: int, gestacion: int)
+        + getGestacion(): int
+        + setGestacion(gestacion: int): void
+        + toString(): String
+    }
+
+    class Perro {
+        - raza: String
+        + Perro()
+        + Perro(nombre: String, tipo_alimentacion: String, edad: int, gestacion: int, raza: String)
+        + getRaza(): String
+        + setRaza(raza: String): void
+        + toString(): String
+    }
+
+    class Gato {
+        - pedigri: String
+        + Gato()
+        + Gato(nombre: String, tipo_alimentacion: String, edad: int, gestacion: int, pedigri: String)
+        + getPedigri(): String
+        + setPedigri(pedigri: String): void
+        + toString(): String
+    }
+
+    class Caballo {
+        - comida: String
+        - ejercicio: int = 1
+        + Caballo()
+        + Caballo(nombre: String, tipo_alimentacion: String, edad: int, gestacion: int, comida: String, ejercicio: int)
+    }
+
+    class EjemploAnimal {
+        + {static} main(args: String[]): void
+    }
+
+    Animal <|-- Mamifero
+    Mamifero <|-- Perro
+    Mamifero <|-- Gato
+    Mamifero <|-- Caballo
+
+}
+
+@enduml
