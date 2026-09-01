@@ -1,0 +1,46 @@
+@startuml Ejercicio 1.3 - Jerarquía de Vehículos
+
+' Clase Base
+class Vehiculo {
+    # modelo: String
+    # año: int
+    # velocidad: double
+    + Vehiculo(modelo, año)
+    + acelerar(): void
+    + frenar(): void
+    + obtenerModelo(): String
+}
+
+' Subclases
+class Auto {
+    - puertas: int
+    + Auto(modelo, año, puertas)
+    + obtenerPuertas(): int
+}
+
+class Moto {
+    - tieneSidecar: boolean
+    + Moto(modelo, año)
+    + agregarSidecar(): void
+}
+
+class Camion {
+    - cargaMaxima: double
+    + Camion(modelo, año, carga)
+    + cargar(peso): void
+}
+
+' Subclase de 3er nivel
+class AutoDeportivo {
+    - velocidadMaxima: double
+    + AutoDeportivo(modelo, año, puertas, velMax)
+    + turbo(): void
+}
+
+' Relaciones de Herencia
+Vehiculo <|-- Auto
+Vehiculo <|-- Moto
+Vehiculo <|-- Camion
+Auto <|-- AutoDeportivo
+
+@enduml
