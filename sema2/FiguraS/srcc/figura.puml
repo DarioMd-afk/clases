@@ -1,0 +1,32 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class EjemploPoli {
+    +{static} void main(String[] args)
+}
+
+class Figura {
+    +void dibujar()
+}
+
+class Circulo {
+    +void dibujar()
+}
+
+class Triangulo {
+    +void dibujar()
+}
+
+class Cuadro {
+    +void dibujar()
+}
+
+Figura <|-- Circulo
+Figura <|-- Triangulo
+Figura <|-- Cuadro
+EjemploPoli ..> Figura : usa
+EjemploPoli ..> Circulo : usa
+EjemploPoli ..> Triangulo : usa
+EjemploPoli ..> Cuadro : usa
+
+@enduml
